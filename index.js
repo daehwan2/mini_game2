@@ -300,6 +300,10 @@ window.addEventListener("keypress", (e) => {
     canvas.classList.remove("visible");
     firstLanding.classList.add("visible");
   }
+
+  if (e.code === "KeyF") {
+    document.documentElement.requestFullscreen();
+  }
 });
 
 const startBtn = document.querySelector(".startBtn");
