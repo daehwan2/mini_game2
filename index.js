@@ -1,6 +1,8 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
+const HARD_TRIGGER = 3000;
+
 const KEY_OBJECT_INIT_WIDTH = 80;
 const KEY_OBJECT_MAX_WIDTH = 120;
 const KEY_OBJECT_INIT_HEIGHT = 80;
@@ -99,8 +101,12 @@ class Monster {
     this.image = this.sort === 0 ? leftObject.image : rightObject.image;
   }
 
-  down() {
-    this.y += 5;
+  down(timer) {
+    if (timer > HARD_TRIGGER) {
+      this.y += 6;
+    } else {
+      this.y += 5;
+    }
   }
 
   draw() {
@@ -250,7 +256,8 @@ const frameExecute = () => {
   leftObject.draw();
   rightObject.draw();
 
-  if (timer % 20 === 0) {
+  const createMonsterTime = timer === HARD_TRIGGER ? 10 : 20;
+  if (timer % createMonsterTime === 0) {
     const monster = new Monster();
     monsters.push(monster);
   }
@@ -262,7 +269,7 @@ const frameExecute = () => {
     if (monster.y >= 800) {
       monsters.splice(index, 1);
     }
-    monster.down();
+    monster.down(timer);
     monster.draw();
   });
 
