@@ -1,3 +1,52 @@
+html,
+body {
+  height: 100%;
+  font-size: 1.2rem;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+}
+html {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body {
+  width: 800px;
+}
+
 canvas {
+  display: none;
   background-color: pink;
+}
+
+.visible {
+  display: block !important;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: orange; */
+  border: 1px solid black;
+}
+
+.first_landing_container {
+  display: none;
+}
+
+.first_landing {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.first_landing .title {
+  font-size: xx-large;
+  font-weight: 600;
+
+  margin-bottom: 40px;
 }

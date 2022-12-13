@@ -5,10 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="select.css" />
+    <link rel="stylesheet" href="button.css" />
     <title>Document</title>
   </head>
   <body>
-    <canvas id="canvas" width="800" height="500"></canvas>
+    <div class="container">
+      <div class="first_landing_container visible">
+        <div class="first_landing">
+          <header>
+            <div class="title">말랑분류</div>
+          </header>
+          <div class="button-container">
+            <a class="btn btn--diagonal btn--orange startBtn" href="#"
+              >시작하기</a
+            >
+            <a class="btn btn--diagonal btn--orange" href="#">순위보기</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="second_landing_container">
+        <div class="select_container">
+          <div class="title">누구신가요?</div>
+          <select name="" id="select1" onchange="onChangeSelect1(this)">
+            <option value="대표님">😎대표님</option>
+            <option value="경영관리파트">👨‍💼경영관리파트</option>
+            <option value="지원파트">🦮지원파트</option>
+            <option value="말랑하니">🎁말랑하니</option>
+            <option value="패브릭">❤️패브릭</option>
+            <option value="루미블린">🧚‍♂️루미블린</option>
+            <option value="본분">🍯본분</option>
+            <option value="잼먹">🍚잼먹</option>
+            <option value="앤드코어">🧴앤드코어</option>
+            <option value="디자인">🎨디자인</option>
+            <option value="물류">📦물류</option>
+            <option value="IT">💻IT</option>
+          </select>
+
+          <select name="" id="select2" onchange="onChangeSelect2(this)">
+            <option value="박성준">박성준</option>
+          </select>
+
+          <a class="btn btn--diagonal btn--orange selectBtn" href="#"
+            >선택완료</a
+          >
+        </div>
+      </div>
+
+      <canvas id="canvas" width="800" height="500"></canvas>
+    </div>
     <script src="index.js"></script>
+    <script src="select.js"></script>
   </body>
 </html>
