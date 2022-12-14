@@ -304,12 +304,33 @@ window.addEventListener("keypress", (e) => {
   if (e.code === "KeyF") {
     document.documentElement.requestFullscreen();
   }
+
+  if (e.code === "KeyO") {
+    openResult = !openResult;
+    getRank();
+  }
 });
 
 const startBtn = document.querySelector(".startBtn");
 const firstLanding = document.querySelector(".first_landing_container");
 const secondLanding = document.querySelector(".second_landing_container");
 const selectBtn = document.querySelector(".selectBtn");
+
+const rankingLanding = document.querySelector(".rank_landing_container");
+const rankBtn = document.querySelector(".rankBtn");
+const homeBtn = document.querySelector(".homeBtn");
+
+rankBtn.addEventListener("click", () => {
+  firstLanding.classList.remove("visible");
+  rankingLanding.classList.add("visible");
+
+  getRank();
+});
+
+homeBtn.addEventListener("click", () => {
+  firstLanding.classList.add("visible");
+  rankingLanding.classList.remove("visible");
+});
 
 startBtn.addEventListener("click", () => {
   firstLanding.classList.remove("visible");
