@@ -121,12 +121,16 @@ class PressRange {
     this.x = 0;
     this.y = 400;
     this.width = canvas.width;
-    this.height = 20;
+    this.height = 25;
+    const btnImage = new Image();
+    btnImage.src = "assets/button.png";
+    this.image = btnImage;
   }
 
   draw() {
-    ctx.fillStyle = "lightGray";
+    ctx.fillStyle = "gray";
     ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
   }
 }
 
@@ -162,8 +166,8 @@ class KeyObject {
     ctx.fillStyle = "black";
     ctx.fillText(
       `${this.color === "green" ? "A" : "D"}`,
-      this.x + 15,
-      this.y + 80
+      this.x + 30,
+      this.y + 110
     );
   }
 }
@@ -177,7 +181,7 @@ const EndText = {
 
   draw() {
     ctx.font = "italic bold 40px Arial, sans-serif";
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "white";
     ctx.fillText(`게임 끝`, this.x, this.y);
     ctx.font = "italic bold 20px Arial, sans-serif";
     ctx.fillText(`재시작:Enter`, this.x, this.y + 40);
@@ -217,6 +221,8 @@ const isMiss = (monster) => {
 
 let timer = 0;
 let monsters = [];
+const backgroundImg = new Image();
+backgroundImg.src = "assets/bg.png";
 
 const frameExecute = () => {
   animation_id = requestAnimationFrame(frameExecute);
@@ -224,6 +230,7 @@ const frameExecute = () => {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
   pressRange.draw();
   if (key === "KeyA") {
     leftObject.press();
