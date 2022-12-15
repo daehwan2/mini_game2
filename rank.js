@@ -15,7 +15,7 @@ const firstSecondThirdLanding = (rank) => {
 };
 
 const getRank = () =>
-  axios.get("http://192.168.0.97:10010/rank?game=말랑RUN").then((res) => {
+  axios.get("http://192.168.0.97:10010/rank?game=말랑분류").then((res) => {
     const rankList = res.data;
     let htmlString = ``;
     rankList.forEach((rankItem) => {
@@ -41,3 +41,15 @@ const getRank = () =>
               <div>점수</div>
             </div>` + htmlString;
   });
+
+/**
+ *
+ * @param {
+ * name:string;
+ * game:string;
+ * score:number;
+ * } body
+ */
+const setRank = (body) => {
+  axios.post("http://192.168.0.97:10010/score", body).then((res) => {});
+};

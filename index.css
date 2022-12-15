@@ -2,7 +2,8 @@ html,
 body {
   height: 100%;
   font-size: 1.2rem;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Jua", sans-serif;
+
   text-align: center;
 }
 html {
@@ -49,7 +50,8 @@ canvas {
 }
 
 .first_landing .title {
-  font-size: xx-large;
+  font-size: 130px;
+
   font-weight: 600;
 
   margin-bottom: 40px;

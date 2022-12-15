@@ -165,7 +165,7 @@ class KeyObject {
     ctx.font = "italic bold 30px Arial, sans-serif";
     ctx.fillStyle = "black";
     ctx.fillText(
-      `${this.color === "green" ? "A" : "D"}`,
+      `${this.color === "green" ? "◀︎" : "►"}`,
       this.x + 30,
       this.y + 110
     );
@@ -190,22 +190,24 @@ const EndText = {
 
 const isRange = (monster) => {
   if (monster.y + monster.height > pressRange.y) {
-    if (key === "KeyA") {
+    if (key === "ArrowLeft") {
       leftObject.isClicked = true;
       if (monster.sort === 0) {
         monster.y = 1000;
       } else {
         // 게임 끝
         isFinish = true;
+        setRank({ name: playerName, score: timer, game: "말랑분류" });
         cancelAnimationFrame(animation_id);
       }
-    } else if (key === "KeyD") {
+    } else if (key === "ArrowRight") {
       rightObject.isClicked = true;
       if (monster.sort === 1) {
         monster.y = 1000;
       } else {
         // 게임 끝
         isFinish = true;
+        setRank({ name: playerName, score: timer, game: "말랑분류" });
         cancelAnimationFrame(animation_id);
       }
     }
@@ -232,9 +234,9 @@ const frameExecute = () => {
 
   ctx.drawImage(backgroundImg, 0, 0, canvas.width, canvas.height);
   pressRange.draw();
-  if (key === "KeyA") {
+  if (key === "ArrowLeft") {
     leftObject.press();
-  } else if (key === "KeyD") {
+  } else if (key === "ArrowRight") {
     rightObject.press();
   }
 
@@ -297,7 +299,8 @@ const startGame = () => {
   rightObject = new KeyObject(1);
   frameExecute();
 };
-window.addEventListener("keypress", (e) => {
+
+window.addEventListener("keydown", (e) => {
   console.log(e);
   if (isStart) {
     key = e.code;
